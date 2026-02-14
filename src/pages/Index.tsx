@@ -4,6 +4,7 @@ import AboutSection from "@/components/AboutSection";
 import ProjectsSection from "@/components/ProjectsSection";
 import WhyBhankrotaSection from "@/components/WhyBhankrotaSection";
 import WhyChooseSection from "@/components/WhyChooseSection";
+import AIAnalyzerSection from "@/components/AIAnalyzerSection";
 import CalculatorSection from "@/components/CalculatorSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import ContactSection from "@/components/ContactSection";
@@ -12,19 +13,20 @@ import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <main className="overflow-hidden">
       <Navbar />
       <HeroSection />
       <AboutSection />
       <ProjectsSection />
       <WhyBhankrotaSection />
       <WhyChooseSection />
+      <AIAnalyzerSection />
       <CalculatorSection />
       <TestimonialsSection />
       <ContactSection />
       <Footer />
       <FloatingWhatsApp />
-    </div>
+    </main>
   );
 };
 

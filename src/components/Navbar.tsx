@@ -6,6 +6,7 @@ const navLinks = [
   { label: "About", href: "#about" },
   { label: "Projects", href: "#projects" },
   { label: "Why Bhankrota", href: "#why-bhankrota" },
+  { label: "AI Analyzer", href: "#ai-analyzer" },
   { label: "Calculator", href: "#calculator" },
   { label: "Testimonials", href: "#testimonials" },
   { label: "Contact", href: "#contact" },
@@ -24,24 +25,25 @@ const Navbar = () => {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled ? "glass-dark py-3 shadow-2xl" : "py-5 bg-transparent"
+        scrolled
+          ? "bg-charcoal/90 backdrop-blur-xl py-3 shadow-2xl border-b border-gold/10"
+          : "py-5 bg-transparent"
       }`}
     >
       <div className="container mx-auto flex items-center justify-between px-4">
         <a href="#" className="flex items-center gap-2">
-          <span className="font-serif text-2xl font-bold text-primary-foreground tracking-wide">
+          <span className="font-serif text-2xl font-bold text-cream tracking-wide">
             SHREEDHAR
           </span>
-          <span className="gold-text font-serif text-sm tracking-[0.3em] uppercase">Group</span>
+          <span className="text-gradient-gold font-serif text-sm tracking-[0.3em] uppercase">Group</span>
         </a>
 
-        {/* Desktop Nav */}
         <nav className="hidden lg:flex items-center gap-8">
           {navLinks.map((l) => (
             <a
               key={l.href}
               href={l.href}
-              className="text-sm font-sans text-primary-foreground/80 hover:text-secondary transition-colors tracking-wide uppercase"
+              className="text-sm font-sans text-cream/80 hover:text-gold transition-colors tracking-wide uppercase"
             >
               {l.label}
             </a>
@@ -49,7 +51,7 @@ const Navbar = () => {
           <a href="tel:+919999999999">
             <Button
               size="sm"
-              className="bg-secondary text-secondary-foreground hover:bg-secondary/90 font-sans uppercase tracking-wider text-xs px-6"
+              className="bg-gradient-gold text-charcoal hover:opacity-90 font-sans uppercase tracking-wider text-xs px-6"
             >
               <Phone className="w-3 h-3 mr-2" />
               Call Now
@@ -57,9 +59,8 @@ const Navbar = () => {
           </a>
         </nav>
 
-        {/* Mobile toggle */}
         <button
-          className="lg:hidden text-primary-foreground"
+          className="lg:hidden text-cream"
           onClick={() => setOpen(!open)}
           aria-label="Toggle menu"
         >
@@ -67,21 +68,20 @@ const Navbar = () => {
         </button>
       </div>
 
-      {/* Mobile Nav */}
       {open && (
-        <nav className="lg:hidden glass-dark border-t border-secondary/20 px-4 py-6 flex flex-col gap-4 animate-fade-in">
+        <nav className="lg:hidden bg-charcoal/95 backdrop-blur-xl border-t border-gold/10 px-4 py-6 flex flex-col gap-4 animate-fade-in-down">
           {navLinks.map((l) => (
             <a
               key={l.href}
               href={l.href}
               onClick={() => setOpen(false)}
-              className="text-primary-foreground/80 hover:text-secondary transition-colors uppercase text-sm tracking-wider font-sans"
+              className="text-cream/80 hover:text-gold transition-colors uppercase text-sm tracking-wider font-sans"
             >
               {l.label}
             </a>
           ))}
           <a href="tel:+919999999999">
-            <Button className="w-full bg-secondary text-secondary-foreground hover:bg-secondary/90 font-sans uppercase tracking-wider text-xs">
+            <Button className="w-full bg-gradient-gold text-charcoal hover:opacity-90 font-sans uppercase tracking-wider text-xs">
               <Phone className="w-3 h-3 mr-2" />
               Call Now
             </Button>

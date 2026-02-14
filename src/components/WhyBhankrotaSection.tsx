@@ -36,7 +36,7 @@ const AnimatedCounter = ({ value, suffix }: { value: number; suffix: string }) =
   }, [inView, value]);
 
   return (
-    <span ref={ref} className="font-serif text-4xl md:text-5xl font-bold gold-text">
+    <span ref={ref} className="font-serif text-4xl md:text-5xl font-bold text-gradient-gold">
       {count}{suffix}
     </span>
   );
@@ -47,19 +47,21 @@ const WhyBhankrotaSection = () => {
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="why-bhankrota" className="section-padding bg-background" ref={ref}>
-      <div className="container mx-auto">
+    <section id="why-bhankrota" className="section-padding bg-background relative overflow-hidden" ref={ref}>
+      <div className="absolute top-1/2 left-0 -translate-y-1/2 w-64 h-64 bg-gold/10 rounded-full blur-3xl" />
+
+      <div className="container mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <span className="font-sans text-sm uppercase tracking-[0.3em] text-accent mb-4 block">
+          <span className="font-sans text-sm uppercase tracking-[0.3em] text-gold mb-4 block">
             Location Advantage
           </span>
           <h2 className="font-serif text-3xl md:text-5xl font-bold text-foreground mb-4">
-            Why Invest in <span className="gold-text">Bhankrota?</span>
+            Why Invest in <span className="text-gradient-gold">Bhankrota?</span>
           </h2>
         </motion.div>
 
@@ -70,10 +72,10 @@ const WhyBhankrotaSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="glass-card rounded-xl p-6 text-center hover-lift"
+              className="bg-card rounded-xl p-6 text-center hover-lift shadow-premium border border-border"
             >
-              <div className="w-12 h-12 mx-auto mb-4 rounded-full bg-accent/10 flex items-center justify-center">
-                <r.icon className="w-5 h-5 text-accent" />
+              <div className="w-12 h-12 mx-auto mb-4 rounded-full bg-gold/10 flex items-center justify-center">
+                <r.icon className="w-5 h-5 text-gold" />
               </div>
               <h3 className="font-serif text-base font-semibold text-foreground mb-2">{r.title}</h3>
               <p className="font-sans text-sm text-muted-foreground">{r.desc}</p>
@@ -81,7 +83,6 @@ const WhyBhankrotaSection = () => {
           ))}
         </div>
 
-        {/* Stats */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           {stats.map((s, i) => (
             <motion.div
