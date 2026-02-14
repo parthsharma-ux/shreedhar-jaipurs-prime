@@ -31,11 +31,11 @@ const CalculatorSection = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-12"
         >
-          <span className="font-sans text-sm uppercase tracking-[0.3em] text-accent mb-4 block">
+          <span className="font-sans text-sm uppercase tracking-[0.3em] text-gold mb-4 block">
             Smart Investment
           </span>
           <h2 className="font-serif text-3xl md:text-5xl font-bold text-foreground mb-4">
-            Calculate Your <span className="gold-text">Investment Potential</span>
+            Calculate Your <span className="text-gradient-gold">Investment Potential</span>
           </h2>
         </motion.div>
 
@@ -43,7 +43,7 @@ const CalculatorSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="glass-card rounded-2xl p-8 md:p-10"
+          className="bg-card rounded-2xl p-8 md:p-10 shadow-premium border border-border"
         >
           <div className="grid md:grid-cols-2 gap-8">
             <div className="space-y-6">
@@ -58,7 +58,6 @@ const CalculatorSection = () => {
                   className="font-sans text-lg"
                 />
               </div>
-
               <div>
                 <Label className="font-sans text-sm text-muted-foreground uppercase tracking-wider mb-2 block">
                   Current Rate (₹ per sq.yd.)
@@ -70,7 +69,6 @@ const CalculatorSection = () => {
                   className="font-sans text-lg"
                 />
               </div>
-
               <div>
                 <Label className="font-sans text-sm text-muted-foreground uppercase tracking-wider mb-3 block">
                   Expected Appreciation: {appreciation}%
@@ -81,19 +79,16 @@ const CalculatorSection = () => {
                   min={5}
                   max={30}
                   step={1}
-                  className="w-full"
                 />
               </div>
-
               <Button
                 onClick={() => setShowResult(true)}
-                className="w-full bg-secondary text-secondary-foreground hover:bg-secondary/90 font-sans uppercase tracking-wider py-6"
+                className="w-full bg-gradient-gold text-charcoal hover:opacity-90 font-sans uppercase tracking-wider py-6"
               >
                 <Calculator className="w-4 h-4 mr-2" /> Calculate Returns
               </Button>
             </div>
 
-            {/* Result */}
             <div className="flex items-center justify-center">
               {showResult ? (
                 <motion.div
@@ -109,21 +104,21 @@ const CalculatorSection = () => {
                   <div className="h-px bg-border" />
                   <div>
                     <p className="font-sans text-sm text-muted-foreground uppercase tracking-wider mb-1">Value After 5 Years</p>
-                    <p className="font-serif text-3xl md:text-4xl font-bold gold-text">{formatINR(futureValue)}</p>
+                    <p className="font-serif text-3xl md:text-4xl font-bold text-gradient-gold">{formatINR(futureValue)}</p>
                   </div>
                   <div className="h-px bg-border" />
                   <div className="flex items-center justify-center gap-2">
-                    <TrendingUp className="w-5 h-5 text-green-500" />
-                    <span className="font-sans text-lg font-semibold text-green-600">
+                    <TrendingUp className="w-5 h-5 text-emerald-500" />
+                    <span className="font-sans text-lg font-semibold text-emerald-600">
                       Potential Profit: {formatINR(profit)}
                     </span>
                   </div>
                 </motion.div>
               ) : (
                 <div className="text-center">
-                  <Calculator className="w-16 h-16 text-accent/30 mx-auto mb-4" />
+                  <Calculator className="w-16 h-16 text-gold/30 mx-auto mb-4" />
                   <p className="font-sans text-muted-foreground">
-                    Enter your details and click calculate to see your projected returns.
+                    Enter details and click calculate to see projected returns.
                   </p>
                 </div>
               )}
